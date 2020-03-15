@@ -1,5 +1,6 @@
 ## Algorithms in Java 
 `Introduction to Algorithms` 책으로 학습하는 중. (2020/02 ~ present)
+* [Today I Learned](./src/TIL.md)
 
 ### Contents 
 
@@ -12,3 +13,4 @@
 
 #### Algorithm Challenges
 * [Merge Two Sorted Lists](./src/com/gahee/algorithms/leetcode/MergeTwoSortedLists.java)
+
