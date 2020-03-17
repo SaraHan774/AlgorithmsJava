@@ -22,3 +22,10 @@ Scanner sc = new Scanner(System.in);
 while(sc.hasNext()){ ... } 
 ```    
 를 하는 경우 `System.in` 으로 인하여 계속해서 입력 대기 상태에 머물게 된다. 
+
+#### 2020-03-17 
+* `BufferedReader` 와 `BufferedWriter` 를 사용하는 것이 Scanner 를 사용하는 것 보다 
+더 빠르다고 한다. 
+* 하지만 왜 자꾸 `flush()`를 해도 엔터키를 눌러야만 값들이 출력되는지 모르겠다 ... 
+* 백준 사이트에서 Java 코드를 제출할 때는 `public class Main` 으로 설정한 후 제출해야 한다. 
+    * 또한 코드 작성시 남겼던 불필요한 출력문들도 제거해 주어야 한다. 
