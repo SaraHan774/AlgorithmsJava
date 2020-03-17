@@ -29,3 +29,5 @@ while(sc.hasNext()){ ... }
 * 하지만 왜 자꾸 `flush()`를 해도 엔터키를 눌러야만 값들이 출력되는지 모르겠다 ... 
 * 백준 사이트에서 Java 코드를 제출할 때는 `public class Main` 으로 설정한 후 제출해야 한다. 
     * 또한 코드 작성시 남겼던 불필요한 출력문들도 제거해 주어야 한다. 
+* Log base 2 를 만들려면 Math.log(x)/Math.log(2) 를 통해 만들어야 한다. 기본 값은 base가 e 이다.
+* Double -> Int 로 만들 경우 `new int[(int) Math.round(numOfNodes)];` 와 같이 한다. 

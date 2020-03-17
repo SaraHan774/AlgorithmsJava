@@ -35,4 +35,5 @@ RIGHT-ROTATE(T, x){
 }
 ```
 
-* left rotate 는 이의 반대로 이루어진다. 
+* left rotate 는 이의 반대로 이루어진다.
+ 
