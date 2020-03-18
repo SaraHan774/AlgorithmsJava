@@ -13,14 +13,14 @@ public class Prob2042{
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(bufferedReader.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        long N = Long.parseLong(st.nextToken());
+        long M = Long.parseLong(st.nextToken());
+        long K = Long.parseLong(st.nextToken());
 
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        ArrayList<Long> arrayList = new ArrayList<>();
 
         for (int i = 0; i < N; i++) {
-            arrayList.add(Integer.parseInt(bufferedReader.readLine()));
+            arrayList.add(Long.parseLong(bufferedReader.readLine()));
             //System.out.println(i + " : " + arrayList.get(i));
         }
 
@@ -29,22 +29,22 @@ public class Prob2042{
 //        fenwickTree.printTree();
 
 
-        int a = 0, b = 0, c = 0;
+        long a = 0, b = 0, c = 0;
         StringTokenizer st2 = null;
         for(int i = 0; i < M + K; i++){
             st2 = new StringTokenizer(bufferedReader.readLine());
-            a = Integer.parseInt(st2.nextToken());
+            a = Long.parseLong(st2.nextToken());
 
             if(a == 1){
-                b = Integer.parseInt(st2.nextToken());
-                c = Integer.parseInt(st2.nextToken());
+                b = Long.parseLong(st2.nextToken());
+                c = Long.parseLong(st2.nextToken());
                 fenwickTree.treeUpdate(b, c);
 //                fenwickTree.printTree();
             }
             else if(a == 2){
-                b = Integer.parseInt(st2.nextToken());
-                c = Integer.parseInt(st2.nextToken());
-                int result = fenwickTree.getTreeSum(c) - fenwickTree.getTreeSum(b-1);
+                b = Long.parseLong(st2.nextToken());
+                c = Long.parseLong(st2.nextToken());
+                long result = fenwickTree.getTreeSum(c) - fenwickTree.getTreeSum(b-1);
 //                System.out.println("==== result : " + result + " ==== ");
                 bufferedWriter.write(result + "\n");
             }
@@ -62,15 +62,15 @@ public class Prob2042{
 
 class FenwickTree{
 
-    private ArrayList<Integer> numbersList;
-    private int [] tree;
+    private ArrayList<Long> numbersList;
+    private long [] tree;
 
-    public FenwickTree(ArrayList<Integer> numbers){
+    public FenwickTree(ArrayList<Long> numbers){
         numbersList = numbers;
-        tree = new int[numbersList.size() + 1];
+        tree = new long[numbersList.size() + 1];
     }
 
-    public int[] getTree() {
+    public long[] getTree() {
         return tree;
     }
 
@@ -88,7 +88,7 @@ class FenwickTree{
         for(int i = 1; i <= numbersList.size(); i++){
             int one = getLastOneBit(i);
 //            System.out.printf("\nA[%d] : %d\n", i, one);
-            int node = 0;
+            long node = 0;
             while(one > 0){
                 node += numbersList.get(i - one);
                 --one;
@@ -105,11 +105,11 @@ class FenwickTree{
     }
 
     //index of the value
-    public int getTreeSum(int i){
-        int sum = 0;
+    public long getTreeSum(long i){
+        long sum = 0;
         while(i > 0){
-            sum += tree[i];
-            i -= getLastOneBit(i);
+            sum += tree[(int)i];
+            i -= getLastOneBit((int)i);
         }
         return sum;
     }
@@ -117,13 +117,13 @@ class FenwickTree{
     //3 번째 숫자를 6으로 바꾼다
     //tree[3], tree[3 + 1], tree[4 + 4], ... 업데이트 되어야 함.
     //5 번째 숫자를 2로 바꾼다.
-    public void treeUpdate(int i, int num){
-        int diff = num - tree[i];
-        tree[i] = num;
-        i += getLastOneBit(i);
-        while(i <= numbersList.size()){
-            tree[i] += diff;
-            i += getLastOneBit(i);
+    public void treeUpdate(long i, long num){
+        long diff = num - (getTreeSum(i) - getTreeSum(i - 1));
+//        tree[(int)i] = num;
+//        i += getLastOneBit((int)i);
+        while(i < tree.length){
+            tree[(int)i] += diff;
+            i += getLastOneBit((int)i);
         }
     }
 

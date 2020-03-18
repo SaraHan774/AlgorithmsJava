@@ -31,3 +31,7 @@ while(sc.hasNext()){ ... }
     * 또한 코드 작성시 남겼던 불필요한 출력문들도 제거해 주어야 한다. 
 * Log base 2 를 만들려면 Math.log(x)/Math.log(2) 를 통해 만들어야 한다. 기본 값은 base가 e 이다.
 * Double -> Int 로 만들 경우 `new int[(int) Math.round(numOfNodes)];` 와 같이 한다. 
+
+#### 2020-03-18
+* 정답의 범위를 확인한다 ... long 인지 int 인지 잘 보고 풀자.
+* 엔터 쳐야 값이 나오는 건 문제되지 않는다.  

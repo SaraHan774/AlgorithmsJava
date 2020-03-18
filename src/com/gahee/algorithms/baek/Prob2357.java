@@ -37,8 +37,8 @@ public class Prob2357 {
             b = Integer.parseInt(st2.nextToken());
 
             // Not sure yet.
-            bw.write(segmentTree.findMin(a, b) + " ");
-            bw.write(segmentTree.findMax(a, b) + "\n");
+//            bw.write(segmentTree.findMin(a, b) + " ");
+//            bw.write(segmentTree.findMax(a, b) + "\n");
             bw.flush();
         }
         bw.close();
@@ -74,11 +74,10 @@ class SegmentTree{
         int left = treeInit(node*2, start, (start  + end)/2);
         int right = treeInit(node*2 + 1, (start+end)/2 + 1, end);
         if(left > right){
-            tree[node] = left;
+            return tree[node] = left;
         }else{
-            tree[node] = right;
+            return tree[node] = right;
         }
-        return tree[node];
     }
 
     public void printTree(){
@@ -92,7 +91,10 @@ class SegmentTree{
         return 0;
     }
 
-    public int findMax(int a, int b){
+    //node 가 담당하는 구간이 start ~ end
+    //구해야 하는 범위는 left ~ right (a, b)
+    public int findMax(int node, int start, int end, int left, int right){
+
         return 0;
     }
 
