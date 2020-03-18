@@ -4,6 +4,9 @@
 
 ### Contents 
 
+#### Basics 
+* [Basic Sortings](./src/com/gahee/algorithms/basic-sortings.md)
+
 #### Introduction to Algorithms 
 * [Queue and Stack](./src/com/gahee/algorithms/queuestack)
 * [Heap Sort](./src/com/gahee/algorithms/heap)
