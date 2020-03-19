@@ -14,7 +14,7 @@ public class Prob2357 {
 
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        System.out.println("N : " + N + " M : " + M);
+//        System.out.println("N : " + N + " M : " + M);
 
         StringTokenizer st2;
         int [] arr = new int[N + 1];
@@ -23,12 +23,13 @@ public class Prob2357 {
         for (int i = 1; i < N + 1; i++) {
             st2 = new StringTokenizer(br.readLine());
             arr[i] = Integer.parseInt(st2.nextToken());
-            System.out.printf("arr[%d] : %d\n", i, arr[i]);
+//            System.out.printf("arr[%d] : %d\n", i, arr[i]);
         }
 
         SegmentTree segmentTree = new SegmentTree(arr);
-        segmentTree.treeInit(1, 1, arr.length - 1);
-        segmentTree.printTree();
+        segmentTree.maxTreeInit(1, 1, arr.length - 1);
+        segmentTree.minTreeInit(1, 1, arr.length - 1);
+//        segmentTree.printTrees();
 
         int a, b;
         for (int i = 0; i < M; i++) {
@@ -37,8 +38,8 @@ public class Prob2357 {
             b = Integer.parseInt(st2.nextToken());
 
             // Not sure yet.
-//            bw.write(segmentTree.findMin(a, b) + " ");
-//            bw.write(segmentTree.findMax(a, b) + "\n");
+            bw.write(segmentTree.findMin(1, 1, arr.length - 1, a, b) + " ");
+            bw.write(segmentTree.findMax(1, 1, arr.length - 1, a, b) + "\n");
             bw.flush();
         }
         bw.close();
@@ -50,7 +51,8 @@ public class Prob2357 {
 class SegmentTree{
 
     int [] arr;
-    int [] tree;
+    int [] maxTree;
+    int [] minTree;
 
     double treeHeight;
     double numOfNodes;
@@ -63,40 +65,83 @@ class SegmentTree{
             numOfNodes += Math.pow(2, i);
         }
 //        System.out.println("Num of Nodes : " + numOfNodes);
-        tree = new int[(int) Math.round(numOfNodes)];
+        maxTree = new int[(int) Math.round(numOfNodes)];
+        minTree = new int[(int) Math.round(numOfNodes)];
     }
 
-    public int treeInit(int node, int start, int end){
+    private int getMid(int start, int end){
+        return (start + end)/2;
+    }
+
+    public int maxTreeInit(int node, int start, int end){
         if(start == end){
-            return tree[node] = arr[start];
+            return maxTree[node] = arr[start];
         }
-
-        int left = treeInit(node*2, start, (start  + end)/2);
-        int right = treeInit(node*2 + 1, (start+end)/2 + 1, end);
+        int left = maxTreeInit(node*2, start, (start  + end)/2);
+        int right = maxTreeInit(node*2 + 1, (start+end)/2 + 1, end);
         if(left > right){
-            return tree[node] = left;
+            return maxTree[node] = left;
         }else{
-            return tree[node] = right;
+            return maxTree[node] = right;
         }
     }
 
-    public void printTree(){
-        for (int i = 1; i < tree.length; i++) {
-            System.out.printf("tree[%d] : %d\n", i, tree[i]);
+    public int minTreeInit(int node, int start, int end){
+        if(start == end){
+            return minTree[node] = arr[start];
+        }
+        int left = minTreeInit(node*2, start, (start  + end)/2);
+        int right = minTreeInit(node*2 + 1, (start+end)/2 + 1, end);
+        if(left < right){
+            return minTree[node] = left;
+        }else{
+            return minTree[node] = right;
         }
     }
 
+/*    public void printTrees(){
+        System.out.println("===Printing MAX TREE===");
+        for (int i = 1; i < maxTree.length; i++) {
+            System.out.printf("tree[%d] : %d\n", i, maxTree[i]);
+        }
+        System.out.println("===Printing MIN TREE===");
+        for (int i = 1; i < minTree.length; i++) {
+            System.out.printf("tree[%d] : %d\n", i, minTree[i]);
+        }
+    }*/
 
-    public int findMin(int a, int b){
-        return 0;
+
+    public int findMin(int node, int start, int end, int left, int right){
+//        System.out.printf("node : %d, left : %d, right : %d, start : %d, end : %d\n", node,left, right, start, end);
+        //left 와 right 가 완전히 벗어나 있는 경우
+        if(left > end || right < start){
+            return Integer.MAX_VALUE;
+        }
+        //left 와 right 를 완전히 포함하는 경우
+        if(left <= start && end <= right){
+            return minTree[node];
+        }
+        int l = findMin(node*2, start, getMid(start, end), left, right);
+        int r = findMin(node * 2 + 1, getMid(start, end) + 1, end, left, right);
+
+        return Math.min(l, r);
     }
 
     //node 가 담당하는 구간이 start ~ end
     //구해야 하는 범위는 left ~ right (a, b)
     public int findMax(int node, int start, int end, int left, int right){
+//        System.out.printf("node : %d, left : %d, right : %d, start : %d, end : %d\n", node,left, right, start, end);
 
-        return 0;
+        if(left > end || right < start){
+            return Integer.MIN_VALUE;
+        }
+        if(left <= start && right >= end){
+            return maxTree[node];
+        }
+        int l =  findMax(node*2, start, getMid(start, end), left, right);
+        int r =  findMax(node * 2 + 1, getMid(start, end) + 1, end, left, right);
+
+        return Math.max(l, r);
     }
-
 
 }

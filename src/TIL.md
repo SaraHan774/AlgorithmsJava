@@ -34,4 +34,11 @@ while(sc.hasNext()){ ... }
 
 #### 2020-03-18
 * 정답의 범위를 확인한다 ... long 인지 int 인지 잘 보고 풀자.
-* 엔터 쳐야 값이 나오는 건 문제되지 않는다.  
+* 엔터 쳐야 값이 나오는 건 문제되지 않는다. 
+
+#### 2020-03-19 
+* `BufferedWriter` 는 항상 character 값을 쓰도록 되어있기 때문에 Int 만 넣어서 출력하는 경우 char 값으로 변환되어서 나온다. 
+    * 따라서 항상 `BufferedWriter.write(문자열)` 과 같이 작성하도록 주의하자.  
+* [세그먼트 트리 문제 : 2357](../src/com/gahee/algorithms/baek/Prob2357.java) 에서 나오는 것 처럼 재귀 쓰는 것 아직도 
+많이 익숙하지 않은 것 같다. 많이 연습해서 재귀적 사고 과정을 머리에 넣어두자.
+* 최소값과 최대값을 구하는 경우 Integer.MAX_VALUE / MIN_VALUE 사용 
