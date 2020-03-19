@@ -16,6 +16,8 @@
 
 #### Algorithm Challenges
 * [Merge Two Sorted Lists](./src/com/gahee/algorithms/leetcode/MergeTwoSortedLists.java)
+* [Segment Tree 2357](./src/com/gahee/algorithms/baek/Prob2357.java)
+* [Fenwick Tree 2042](./src/com/gahee/algorithms/baek/Prob2042.java)
 
 ### Resources 
 * [삼성 소프트웨어 엑스퍼트 아카데미](https://swexpertacademy.com/main/main.do)
