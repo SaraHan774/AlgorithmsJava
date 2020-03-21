@@ -41,4 +41,12 @@ while(sc.hasNext()){ ... }
     * 따라서 항상 `BufferedWriter.write(문자열)` 과 같이 작성하도록 주의하자.  
 * [세그먼트 트리 문제 : 2357](../src/com/gahee/algorithms/baek/Prob2357.java) 에서 나오는 것 처럼 재귀 쓰는 것 아직도 
 많이 익숙하지 않은 것 같다. 많이 연습해서 재귀적 사고 과정을 머리에 넣어두자.
-* 최소값과 최대값을 구하는 경우 Integer.MAX_VALUE / MIN_VALUE 사용 
+* 최소값과 최대값을 구하는 경우 Integer.MAX_VALUE / MIN_VALUE 사용
+
+#### 2020-03-20
+* Sequence 정보가 있을 때는 2차원 DP 를 사용한다. 
+* `TIP!` 2차원 DP 가 채워지는 방향을 잘 보자. (대각선의 위로 채워지는지, 아래로 채워지는지 확인할 것)
+* 윈도우(일정한 구간)를 정해서 배열을 순회하는 것을 Window Sliding 이라고 한다.
+* 진몽이의 알고리즘 특강 과제 
+    1. [최대 공통 증가수열 : 7476](https://www.acmicpc.net/problem/7476)
+    2. [Longest Common Subsequence : 9251](https://www.acmicpc.net/problem/9251)

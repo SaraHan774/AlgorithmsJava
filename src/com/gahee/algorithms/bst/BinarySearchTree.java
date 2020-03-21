@@ -3,15 +3,35 @@ package com.gahee.algorithms.bst;
 
 public class BinarySearchTree{
 
+    public BinarySearchTree(){
 
-    public Node createNewNode(int data){
+    }
+
+    public Node createNode(int data){
         return new Node(null, null, null, data);
     }
 
     public void insertNode(Node rootNode, int data){
         //만약 트리가 존재하지 않는다면
-        if(rootNode == null){
-            rootNode = createNewNode(data);
+        Node newNode = createNode(data);
+
+        Node parent = null;
+        Node child = rootNode;
+        while(child != null){
+            parent = child;
+            if(newNode.key < child.key){
+                child = child.left;
+            }else{
+                child = child.right;
+            }
+        }
+        newNode.parent = parent;
+        if(parent == null){
+            rootNode = newNode;
+        }else if(newNode.key < parent.key){
+            parent.left = newNode;
+        }else{
+            parent.right = newNode;
         }
     }
 

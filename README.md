@@ -21,6 +21,5 @@
 
 ### Resources 
 * [삼성 소프트웨어 엑스퍼트 아카데미](https://swexpertacademy.com/main/main.do)
-    * 4월 부터 혼자 학습할 때 참고할 자료
 * [Blog : Fenwick Tree](https://www.acmicpc.net/blog/view/21)
 * [Blog : Segment Tree](https://www.acmicpc.net/blog/view/9)
