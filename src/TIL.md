@@ -50,3 +50,18 @@ while(sc.hasNext()){ ... }
 * 진몽이의 알고리즘 특강 과제 
     1. [최대 공통 증가수열 : 7476](https://www.acmicpc.net/problem/7476)
     2. [Longest Common Subsequence : 9251](https://www.acmicpc.net/problem/9251)
+    
+    
+#### 2020-03-23 
+* KickStart 2020 round A 참가 
+
+#### 2020-03-25 
+* DP 의 핵심은 Memoization Table 을 만드는 것 + Building up a bigger solution 
+* 예시 
+    1. Assembly line 문제에서는 라인 별 최소 시간을 계산해 두는 테이블과, 해당 시간을 
+    얻기 위해 어떤 라인에서 부터 왔는지를 테이블에 따로 기록해둔다. 
+    2. LCS 에서는 두 개의 문자열을 이용해 2차원 배열을 만들고, 각 문자들이 같은지, 같다면 어디에서 왔는지, 
+    LCS의 개수는 어떻게 되는지 기록해 나간다. 
+* [최대 공통 증가수열의 합 : 11055](https://www.acmicpc.net/problem/11055)
+    * [11055 코드](../src/com/gahee/algorithms/baek/Prob11055.java)
+    
