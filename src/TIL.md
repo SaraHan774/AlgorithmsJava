@@ -67,4 +67,13 @@ while(sc.hasNext()){ ... }
 * [Longest Common Subsequence : 9251](https://www.acmicpc.net/problem/9251)
     * [9251 코드](../src/com/gahee/algorithms/baek/Prob9251.java)
     * LCS 를 출력하라는 문제는 방향 배열도 만들어야 하는데, LCS의 길이만 구하는 경우 길이 배열만 유지하면 된다. 
-    
+
+* 2D 배열 첫 열 첫 행 0으로 초기화 하는 방법 
+```
+        for (int i = 0; i < c1.length; i++) {
+            lcs[i][0] = 0;
+        }
+        for (int i = 0; i < c2.length; i++) {
+            lcs[0][i] = 0;
+        }
+```
