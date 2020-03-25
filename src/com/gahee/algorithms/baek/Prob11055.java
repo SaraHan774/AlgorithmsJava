@@ -44,10 +44,11 @@ public class Prob11055 {
             //1, 100, 2, 50, 60, 3 ...
 
             for (int j = 0; j < i; j++) {
-
+                System.out.printf("arr[%d] : %d vs arr[%d] : %d\n", i, arr[i], j, arr[j]);
                 if(arr[i] > arr[j]){
                     System.out.printf("Max(sum[%d] + arr[%d] = %d, sum[%d] = %d)\n", j, i, sum[j] + arr[i], i, sum[i]);
                     sum[i] = Math.max(sum[j] + arr[i], sum[i]);
+                    System.out.printf("sum[%d] : %d\n\n", i, sum[i]);
                 }
             }
         }

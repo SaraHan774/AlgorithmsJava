@@ -64,4 +64,7 @@ while(sc.hasNext()){ ... }
     LCS의 개수는 어떻게 되는지 기록해 나간다. 
 * [최대 공통 증가수열의 합 : 11055](https://www.acmicpc.net/problem/11055)
     * [11055 코드](../src/com/gahee/algorithms/baek/Prob11055.java)
+* [Longest Common Subsequence : 9251](https://www.acmicpc.net/problem/9251)
+    * [9251 코드](../src/com/gahee/algorithms/baek/Prob9251.java)
+    * LCS 를 출력하라는 문제는 방향 배열도 만들어야 하는데, LCS의 길이만 구하는 경우 길이 배열만 유지하면 된다. 
     
