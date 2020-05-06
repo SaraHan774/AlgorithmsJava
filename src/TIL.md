@@ -77,3 +77,23 @@ while(sc.hasNext()){ ... }
             lcs[0][i] = 0;
         }
 ```
+
+### 2020-05-06 
+* Comparator 사용하기 
+```
+Comparator<Interval> comparator = Comparator.comparingInt(o -> o.start);
+Arrays.sort(intervals, comparator);
+```
+* 인트 값을 기준으로 start 가 작은 것부터 큰 순으로 정렬하는 것.
+* 새로운 배열을 꼭 만들지 않아도 되는 상황
+```
+//Move zeros : 0이 아닌 곳의 숫자를 원래의 배열의 앞부터 채워넣으면 된다. 
+     for (int i = 0; i < numbers.length; i++) {
+            if(numbers[i] != 0) {
+                // 0 이 아닌 것을 배열의 처음부터 다시 집어넣는다.
+                // 새로운 배열을 만들지 않아도 된다.
+                numbers[index] = numbers[i];
+                index++;
+            }
+        }
+``` 
