@@ -1,5 +1,7 @@
-## Today I Learned ... 
+# Today I Learned ... 
 그 날 깨달은 것들을 정리해 두는 곳입니다. 
+
+## 2020-03
 
 #### 2020-03-15 
 Singly Linked List 는 항상 헤드로부터 타고 들어가서 접근한다. 따라서 어느 작업을 할 때든 헤드를 알고 있어야 
@@ -78,7 +80,9 @@ while(sc.hasNext()){ ... }
         }
 ```
 
-### 2020-05-06 
+## 2020-05
+
+#### 2020-05-06 
 * Comparator 사용하기 
 ```
 Comparator<Interval> comparator = Comparator.comparingInt(o -> o.start);
