@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class Prob9251 {
+public class P9251 {
 
 
     public static void main(String[] args) throws IOException {

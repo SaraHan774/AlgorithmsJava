@@ -3,7 +3,7 @@ package com.gahee.algorithms.baek;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class Prob11055 {
+public class P11055 {
 /*Longest Common Subsequence Problem.
 * A = {1, 100, 2, 50, 60, 3, 5, 6, 7, 8} 인 경우에 합이 가장 큰 증가 부분
 * 수열은 A = {1(V), 100, 2(V), 50(V), 60(V), 3, 5, 6, 7, 8} 이고, 합은 113이다.

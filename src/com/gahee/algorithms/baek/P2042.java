@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Prob2042{
+public class P2042 {
 
     public static void main(String[] args) throws IOException {
 

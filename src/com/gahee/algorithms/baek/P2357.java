@@ -3,7 +3,7 @@ package com.gahee.algorithms.baek;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class Prob2357 {
+public class P2357 {
 
     public static void main(String[] args) throws IOException {
 
