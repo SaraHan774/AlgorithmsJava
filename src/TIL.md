@@ -119,8 +119,18 @@ StringBuilder answer = new StringBuilder();
 * 카카오 여름 인턴십 문제를 풀어보았다. 한 문제 밖에 제대로 풀지 못했지만, 
 그래도 문제를 보니 1년 동안 집중해서 공부하면 될 수 있을 것이라는 확신이 들었다. 
 정해진 계획들을 잘 따라서 앞으로 정말 열심히 한 번 해봐야지. 
-
 * 그나마 쉽게 풀었던 문제 ... [전화번호 누르기 문제](../src/com/gahee/algorithms/kakao/DialPad.java)
-* BufferedReader 는 읽는 것들을 character 로 변환한다는 것을 두 달 전에 써놨건만 또 까먹고 문제를 이상하게 풀었다.
-* [ASCII 숫자로 출력하기](../src/com/gahee/algorithms/baek/P11654.java)
- 
+
+#### 오늘의 문제 
+1. [ASCII 숫자로 출력하기](../src/com/gahee/algorithms/baek/P11654.java)
+    * BufferedReader 는 읽는 것들을 character 로 변환한다는 것을 두 달 전에 써놨건만 또 까먹고 문제를 이상하게 풀었다.
+2. [들어온 숫자들을 합해서 출력하기](../src/com/gahee/algorithms/baek/P11720.java)
+    * char 과 같은 primitive type 들은 int 로 변환하는 메서드를 갖고 있지 않다. 따라서 int로 형변환을 한 후에 얻은 아스키 코드 값에서 
+    48을 빼주어야 원래의 int 값을 얻을 수 있다. 
+    
+```
+for (int i = 0; i < N; i++) {
+            K = (int)numbers[i] - 48;
+            answer += K;
+        }
+``` 
