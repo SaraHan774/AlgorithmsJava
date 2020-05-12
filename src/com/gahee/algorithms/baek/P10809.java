@@ -20,6 +20,8 @@ public class P10809 {
             e.printStackTrace();
         }
 
+        //otherAnswer(input);
+
         char [] inputArray = input.toCharArray(); //input 을 초기화해야 한다.
         // 모든 소문자 알파벳들이 담긴 배열을 만든다
         char [] alphabets = new char[26];
@@ -55,6 +57,12 @@ public class P10809 {
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void otherAnswer(String input){
+        for (int i = 0; i < 26; i++) {
+            System.out.print(input.indexOf((char)(i+97)) + " ");
         }
     }
 }

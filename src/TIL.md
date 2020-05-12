@@ -140,5 +140,11 @@ for (int i = 0; i < N; i++) {
     * 총 26개의 알파벳이 있다. 
     * 중복될 경우에도 첫 인덱스를 갖고 있도록 하기 위해서 Map.contains() 를 사용했다. 
     * 처음에 ArrayList 를 쓸지, Array 를 쓸지 잘 정하고 사용하자. 되돌아 가야 하는 경우에 많이 헷갈린다. 
-    
-    
+
+```
+for (int i = 0; i < 26; i++) {
+            System.out.print(input.indexOf((char)(i+97)) + " ");
+        }
+```
+ 
+* **위와 같이 `String.indexOf()` 를 사용하면 정말 한줄로 풀 수 있는 문제였다.** 
