@@ -134,3 +134,11 @@ for (int i = 0; i < N; i++) {
             answer += K;
         }
 ``` 
+
+3. [알파벳이 들어있다면 찾은 위치 출력하기](../src/com/gahee/algorithms/baek/P10809.java)
+    * ASCII 값으로 소문자 a 는 97 이고 z 는 122 이다. 
+    * 총 26개의 알파벳이 있다. 
+    * 중복될 경우에도 첫 인덱스를 갖고 있도록 하기 위해서 Map.contains() 를 사용했다. 
+    * 처음에 ArrayList 를 쓸지, Array 를 쓸지 잘 정하고 사용하자. 되돌아 가야 하는 경우에 많이 헷갈린다. 
+    
+    
