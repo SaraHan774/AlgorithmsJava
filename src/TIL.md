@@ -148,3 +148,7 @@ for (int i = 0; i < 26; i++) {
 ```
  
 * **위와 같이 `String.indexOf()` 를 사용하면 정말 한줄로 풀 수 있는 문제였다.** 
+
+4. [주어진 횟수만큼 반복해서 출력하기](../src/com/gahee/algorithms/baek/P2675.java)
+    * 특별히 어려운 문제가 아니었다. 
+    
