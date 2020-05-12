@@ -48,4 +48,30 @@ public class P1157 {
 
         br.close();
     }
+
+
+
+    private void otherAnswer(String input){
+
+        input = input.toUpperCase();
+
+        int arr [] = new int[26];
+        int max=0;
+        char result = '?';
+        for(int i=0; i<input.length(); i++){
+            // 문자의 위치에 맞게 배열의 인덱스를 1 증가
+            arr[input.charAt(i) - 65]++;
+            // 해당 인덱스의 요소가 max 인지 판별
+            if(max < arr[input.charAt(i)-65]){
+                max = arr[input.charAt(i)-65];
+                result = input.charAt(i);
+            }
+             //만약 max 와 값이 같다면 result 를 '?' 로 지정한다.
+            else if(max == arr[input.charAt(i)-65]){
+                result ='?';
+            }
+        }
+
+        System.out.print(result);
+    }
 }

@@ -159,3 +159,30 @@ for (int i = 0; i < 26; i++) {
     있는 경우를 미처 생각하지 못한 사고였다. 그래서 문자의 끝까지 비교할 수 있도록 하고, 최종적으로 
     charMax 가 뭔지에 따라 출력하도록 바꾸었다. 
     
+```
+input = input.toUpperCase();
+
+        int arr [] = new int[26];
+        int max=0;
+        char result = '?';
+        for(int i=0; i<input.length(); i++){
+            // 문자의 위치에 맞게 배열의 인덱스를 1 증가 
+            arr[input.charAt(i) - 65]++;
+            // 해당 인덱스의 요소가 max 인지 판별 
+            if(max < arr[input.charAt(i)-65]){
+                max = arr[input.charAt(i)-65];
+                result = input.charAt(i);
+            }
+             //만약 max 와 값이 같다면 result 를 '?' 로 지정한다. 
+            else if(max == arr[input.charAt(i)-65]){
+                result ='?';
+            }
+        }
+
+        System.out.print(result);
+        
+```
+
+* 중복 제거에 집착해서 굳이 Map 을 사용할 필요는 없었다. 다른 정답을 보니 위의 방법처럼 하여 메모리를 훨씬 적게 사용하였다. 
+물론 시간은 내 방법이 조금 더 빠르긴 했다. 
+* 알파벳이 26개 이므로 원소 26개짜리 배열을 만든다. 만든 후 -65 를 해서 알파벳 순서에 맞게 배열의 인덱스를 가리킬 수 있게 한다.
