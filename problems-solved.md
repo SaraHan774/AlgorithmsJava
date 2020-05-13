@@ -12,7 +12,7 @@
 | 6    | https://www.acmicpc.net/problem/1152  | trim() -> 공백 아닌 문자만 리스트에 담아서 리스트 길이 반환  | trim 하거나 StringTokenizer 이용. 별도의 list 말고 바로 int 변수로 개수 세서 해당 변수만 프린트. |
 | 7    | https://www.acmicpc.net/problem/2908  | StringBuilder 의 reverse 함수 사용                           | reverse 하는 방식은 다양한데, 대소비교 출력은 Math.max 를 사용하는게 깔끔함. |
 | 8    | https://www.acmicpc.net/problem/5622  | `dial[][]` 을 만들어서 번호와 번호에 대응하는 문자, 번호 누르는 시간을 담았다. | Switch-Case 문 사용하기 (?)                                  |
-| 9    | https://www.acmicpc.net/problem/2941  |                                                              |                                                              |
-| 10   | https://www.acmicpc.net/problem/1316  |                                                              |                                                              |
+| 9    | https://www.acmicpc.net/problem/2941  | ArrayList 에 크로아티아 문자를 담고 replaceAll("!") 을 한다. 문자의 총 길이를 반환한다. | `String []` 에 문자를 담아서 replaceAll 한다.                |
+| 10   | https://www.acmicpc.net/problem/1316  | Map 에다가 문자와 문자의 인덱스를 담고, 만약 Map 안에 검사하는 문자가 들어있으면 인덱스가 연이어 있는건지 확인한다. | 굳이 Map 을 쓸 필요는 없었고, 그냥 문자들로 문자열 하나를 이어나가면서 길이를 비교하는 방식으로 연이은 문자인지 확인하는 방법도 있다. |
 |      |                                       |                                                              |                                                              |
 
