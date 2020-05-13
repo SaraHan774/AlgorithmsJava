@@ -52,9 +52,7 @@ public class P1157 {
 
 
     private void otherAnswer(String input){
-
         input = input.toUpperCase();
-
         int arr [] = new int[26];
         int max=0;
         char result = '?';
@@ -71,7 +69,6 @@ public class P1157 {
                 result ='?';
             }
         }
-
         System.out.print(result);
     }
 }
