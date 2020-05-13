@@ -1,6 +1,7 @@
 ## Algorithms in Java 
 `Introduction to Algorithms` 책으로 학습하는 중. (2020/02 ~ present)
-* [Today I Learned](./src/TIL.md)
+* [Today I Learned : Summary](./src/TIL.md)
+* [Today I Learned : Details](./TIL)
 
 
 ### Resources 

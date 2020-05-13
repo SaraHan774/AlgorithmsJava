@@ -156,4 +156,11 @@ int answer = 0;
     
 8. [전화를 거는 데 걸리는 시간 구하기](../src/com/gahee/algorithms/baek/P5622.java)
     * dial 이라는 2차원 배열을 만들어서 해당 숫자, 전화 거는데 걸리는 시간, 대응하는 문자의 마지막에 대한 정보를 담았다. 
-    * 다른 정답을 보니 하드 코딩해서 엄청난 양의 switch - case 문을 만들었던데 ...  
+    * 다른 정답을 보니 하드 코딩해서 엄청난 양의 switch - case 문을 만들었던데 ...
+    
+9. [크로아티아 알파벳 걸러내기](../src/com/gahee/algorithms/baek/P2941.java)
+    * 처음에는 Set 에 담아서 String.contains() 로 걸러내려 했는데, "dz=" 와 "z=" 의 우선순위 
+    설정이 필요해서 순서가 있는 ArrayList 에 담아서 했다. 
+    * 굳이 ArrayList 말고 그냥 배열을 사용했어도 되었다.
+    * String.replaceAll() 로 해당 문자가 담긴 곳은 모두 "!" 라는 문자 하나로 치환하고, 
+    마지막에 남은 문자열의 길이를 정답으로 반환한다.    
