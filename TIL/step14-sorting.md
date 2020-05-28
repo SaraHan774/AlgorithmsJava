@@ -25,7 +25,7 @@
 6. [좌표 정렬하기 - x좌표 기준](../src/com/gahee/algorithms/baek/P11650.java)
 7. [좌표 정렬하기 - y좌표 기준](../src/com/gahee/algorithms/baek/P11650.java)
     * Comparable 인터페이스를 구현하고, 정렬 기준을 명시해준다. 
-    * Point 객체를 출력했을 때 `x y` 형식으로 출력되도록 toString 을 오버라이링 해준다. 
+    * Point 객체를 출력했을 때 `x y` 형식으로 출력되도록 toString 을 오버라이딩 해준다. 
     
 8. [단어 정렬](../src/com/gahee/algorithms/baek/P1181.java)
     * Arrays.sort(arr, new Comparator()) 을 통해서 정렬의 기준을 정한다. 
