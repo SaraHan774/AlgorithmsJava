@@ -112,4 +112,9 @@ Arrays.sort(intervals, comparator);
 #### 2020-05-13 
 * 배운것의 응용과 새로운 방법의 고안 - 둘 사이의 절묘한 줄타기의 연속이다. 물론 아예 새로운 것은 없겠지만. 
 * 좀 더 도전적인 시도를 하는 노력을 해보자. 
-* String.contains() 와 HashMap.contains() 의 정확한 성능 차이는?  
+* String.contains() 와 HashMap.contains() 의 정확한 성능 차이는?
+
+#### 2020-05-29 
+* 클래스의 필드값으로 접근해서 값을 setting 하는 것과, getter 로 접근해서 
+값을 set 하는 것은 다르다. get 한 결과가 null 이면, 해당 필드에는 값을 set 할 수 없다. 
+  
