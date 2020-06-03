@@ -207,5 +207,47 @@ public void doDFS(int v){
 
   
 
+### Code 
 
+```java
+//넓이 우선 탐색을 진행한다.
+public void doBFS(int v){
+    queue.add(v); //방문한 정점을 큐에 넣는다.
+    visited[v] = 1; //방문 했다고 표시한다.
+    System.out.println("visited " + v);
+
+    while(!queue.isEmpty()){
+        //queue 의 front 와 연결된 간선이 있는가?
+        int front = queue.poll();
+        Node curNode = graph[front];
+
+        while(curNode.next != null){
+            curNode = curNode.next;
+            //queue 의 front 와 연결된 정점들을 방문 했는가?
+            if(visited[curNode.v] != 1){
+                visited[curNode.v] = 1;
+                queue.add(curNode.v);
+                System.out.println("visited " + curNode.v);
+            }
+        }
+
+    }
+}
+```
+
+* Stack 대신 Queue 를 이용한다. 먼저 탐색했던 것과 연결된 정점이 있는지 확인한 후 그 다음 정점으로 넘어간다. 
+
+
+
+<img src="image-20200603150817310.png" alt="image-20200603150817310" style="zoom: 33%;" />
+
+* 위와같은 그래프를 만든다고 할 때의 BFS 의 결과는 다음과 같다. 
+
+```
+visited 0
+visited 2
+visited 4
+visited 1
+visited 3
+```
 
