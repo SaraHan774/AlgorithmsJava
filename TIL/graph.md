@@ -56,7 +56,7 @@
 * [단일 연결 리스트로 그래프 표현하기](../src/com/gahee/algorithms/graph/GraphSLL.java) 
 
 
-# DFS (Depth First Search)
+# DFS (Depth First Search) : 노드를 쭉 타고 들어간다! 
 
 * 하나의 vertex 에서 시작하여 graph 의 모든 vertex 를 방문하는 알고리즘. 
     * 그래프의 모든 연결된 정점을 중복 없이 방문. 
@@ -203,7 +203,9 @@ public void doDFS(int v){
 
 
 
-### BFS 
+# BFS (Breadth First Search) : 노드의 주변을 먼저 탐색한 후 들어간다!
+
+  
 
 
 
