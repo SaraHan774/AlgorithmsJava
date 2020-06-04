@@ -253,6 +253,10 @@ visited 3
 
 
 
+
+
+#### 2020-06-04
+
 # MST (Minimum Spanning Tree)
 
 * 가장 낮은 weight 를 가진 간선부터 연결해 나간다. 
