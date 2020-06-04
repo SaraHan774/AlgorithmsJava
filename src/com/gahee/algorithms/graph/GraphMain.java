@@ -4,22 +4,19 @@ public class GraphMain {
 
     public static void main(String[] args) {
 
-        GraphBFS graphBFS = new GraphBFS();
+        GraphMST graphMST = new GraphMST();
 
-        graphBFS.addEdge(0, 1, 1);
-        graphBFS.addEdge(0, 2, 1);
-        graphBFS.addEdge(0, 4, 1);
-        graphBFS.addEdge(1, 2, 1);
-        graphBFS.addEdge(2, 3, 1);
-        graphBFS.addEdge(2, 4, 1);
-        graphBFS.addEdge(3, 4, 1);
+        graphMST.addEdge(0, 1, 1);
+        graphMST.addEdge(0, 2, 3);
+        graphMST.addEdge(0, 4, 5);
+        graphMST.addEdge(1, 2, 2);
+        graphMST.addEdge(1, 4, 4);
+        graphMST.addEdge(2, 3, 7);
+        graphMST.addEdge(2, 4, 6);
+        graphMST.addEdge(3, 4, 8);
 
-//        graphBFS.showAdjacentVertex(0);
-//        graphBFS.showAdjacentVertex(1);
-//        graphBFS.showAdjacentVertex(2);
-//        graphBFS.showAdjacentVertex(3);
-//        graphBFS.showAdjacentVertex(4);
-        graphBFS.doBFS(0);
+        graphMST.sortEdges();
+        graphMST.doMST();
 
     }
 }

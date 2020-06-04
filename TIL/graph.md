@@ -251,3 +251,226 @@ visited 1
 visited 3
 ```
 
+
+
+# MST (Minimum Spanning Tree)
+
+* 가장 낮은 weight 를 가진 간선부터 연결해 나간다. 
+* Edge 들을 별도의 배열에 담고, 이를 정렬해야 한다. 
+* Cycle Detection 을 위해서 {0, 1, 2, 3, 4} 와 같이 배열을 유지한다. 1->2로 가는 간선이 선택되었으면 2를 1로 바꾼다. 둘이 같은 숫자이면 같은 family 라는 말. 만약 1 -> 3 으로 가는 것이 나오면 3도 1로 바꿀 것이다. 이 때 2->3 으로 가는 것은 둘의 숫자가 같으므로 cycle 을 형성한다는 것을 알 수 있다. 
+
+
+
+#### 필요한 자료구조 
+
+```java
+    private static final int NUM_VERTEX = 5;
+    private static final int NUM_EDGES = 8;
+
+    //간선을 담을 공간과 정점을 담을 공간을 확보한다.
+    private Edge [] edges = new Edge[NUM_EDGES];
+    private Node [] graph = new Node[NUM_VERTEX];
+
+    private int [] cycleDetection = {0 ,1, 2, 3, 4};
+
+    private class Edge{
+        int fromV;
+        int toV;
+        int weight;
+        Edge(int fromV, int toV, int weight){
+            this.fromV = fromV;
+            this.toV = toV;
+            this.weight = weight;
+        }
+
+        @Override
+        public String toString() {
+            return "Edge{" +
+                    "fromV=" + fromV +
+                    ", toV=" + toV +
+                    ", weight=" + weight +
+                    '}';
+        }
+    }
+
+    private class Node{
+        int v;
+        int weight;
+        Node next;
+        Node(int v, int weight, Node next){
+            this.v = v;
+            this.weight = weight;
+            this.next = next;
+        }
+    }
+```
+
+* 간선과 정점을 담을 배열 
+* 간선과 정점을 표현하는 클래스 
+* cycle 을 감지하는 배열 
+
+
+
+#### 간선 추가하기 
+
+```java
+    //인자 값으로 weight 를 넣어준다.
+    public void addEdge(int v1, int v2, int weight){
+        //새로운 노드를 만든다.
+        Node newNode = new Node(v2, weight, null);
+        //현재 노드를 담을 공간을 참조한다.
+        Node curNode = graph[v1];
+
+        if(curNode == null){
+            graph[v1] = newNode;
+        }else{
+            while(curNode.next != null){
+                curNode = curNode.next;
+            }
+            curNode.next = newNode;
+        }
+        //역방향은 담지 않는다.
+    }
+```
+
+* 간선을 추가할 때 역방향은 담지 않는다. 
+* 0 -> 1 로 가는 것과 1->0 으로 가는 것을 별개로 취급하지 않음. 
+
+
+
+#### 간선 정렬하기 
+
+```java
+    //MST 를 하기 전에 edge 들을 weight 순서대로 정렬해 주어야 한다.
+    //오름차순으로 정렬한다.
+    public void sortEdges(){
+        int edges_index = 0;
+
+        //간선을 담는 배열에 모든 간선들을 추가해준다.
+        for (int i = 0; i < NUM_VERTEX; i++) {
+            Node curNode = graph[i]; //0에 들어가있는 첫번째 노드가 반환된다.
+            while(curNode != null){
+                Edge edge = new Edge(i, curNode.v, curNode.weight);
+                edges[edges_index++] = edge;
+                curNode = curNode.next;
+            }
+        }
+
+        Arrays.sort(edges, (o1, o2) -> {
+            if(o1.weight > o2.weight){
+                return 1;
+            }else if(o1.weight < o2.weight){
+                return -1;
+            }
+            return 0;
+        });
+        //간선들을 출력해본다.
+        for (int i = 0; i < NUM_EDGES; i++) {
+            System.out.println(edges[i]);
+        }
+    }
+```
+
+* 간선을 정렬하고, 작은 순서부터 큰 순서대로 연결해 나갈 수 있도록 한다. 
+
+
+
+#### 같은 그룹에 넣기 
+
+```java
+    //앞 순서의 숫자로 배열 요소를 바꿈으로서 같은 그룹에 속하게 한다.
+    public void putIntoSameGroup(int v1, int v2){
+        int g1 = cycleDetection[v1];
+        int g2 = cycleDetection[v2];
+
+        for (int i = 0; i < NUM_VERTEX; i++) {
+            if(cycleDetection[i] == Math.max(g1, g2)){
+                cycleDetection[i] = Math.min(g1, g2);
+            }
+        }
+    }
+```
+
+* 같은 그룹에 속하도록 작은 정점의 요소로 큰 정점의 요소를 바꿔준다. 
+
+
+
+#### MST 만들기 
+
+```java
+    public void doMST(){
+        //간선들이 정렬되어 있으므로 하나씩 더해가면서
+        //사이클이 생기는 애들은 빼고, 아닌 애들만 출력한다.
+        int mst_edges = 0;
+
+        for (int i = 0; i < NUM_EDGES; i++) {
+            //같은 그룹에 속해있지 않다면
+            if(cycleDetection[edges[i].fromV] != cycleDetection[edges[i].toV]){
+                System.out.println("MST Edge " + edges[i].fromV + " === " + edges[i].toV + " W : " + edges[i].weight);
+                mst_edges++; //0, 1, 2, 3, 4 까지 가면 마지막이므로
+                if(mst_edges == NUM_VERTEX - 1){
+                    //만약 모든 정점을 다 순회했다면 리턴한다.
+                    return;
+                }
+                // 같은 그룹에 속하게 한다.
+                putIntoSameGroup(edges[i].fromV, edges[i].toV);
+            }
+        }
+    }
+```
+
+* 만약 같은 그룹에 속해있지 않다면 아직 연결되지 않은 것이므로 연결해준다. 
+* 만약 모든 정점들을 다 연결했으면 return 한다. 
+
+
+
+#### 출력 결과 
+
+```
+public class GraphMain {
+
+    public static void main(String[] args) {
+
+        GraphMST graphMST = new GraphMST();
+
+        graphMST.addEdge(0, 1, 1);
+        graphMST.addEdge(0, 2, 3);
+        graphMST.addEdge(0, 4, 5);
+        graphMST.addEdge(1, 2, 2);
+        graphMST.addEdge(1, 4, 4);
+        graphMST.addEdge(2, 3, 7);
+        graphMST.addEdge(2, 4, 6);
+        graphMST.addEdge(3, 4, 8);
+
+        graphMST.sortEdges();
+        graphMST.doMST();
+
+    }
+}
+
+```
+
+위와같이 그래프를 만든다. 
+
+<img src="Annotation 2020-06-04 163429.jpg" alt="Annotation 2020-06-04 163429" style="zoom:33%;" />
+
+그림으로 표현하면 위와 같다. 
+
+출력하면 아래와 같이 간선들이 정렬되고, 어떻게 연결이 되었는지 확인할 수 있다. 
+
+```
+Edge{fromV=0, toV=1, weight=1}
+Edge{fromV=1, toV=2, weight=2}
+Edge{fromV=0, toV=2, weight=3}
+Edge{fromV=1, toV=4, weight=4}
+Edge{fromV=0, toV=4, weight=5}
+Edge{fromV=2, toV=4, weight=6}
+Edge{fromV=2, toV=3, weight=7}
+Edge{fromV=3, toV=4, weight=8}
+MST Edge 0 === 1 W : 1
+MST Edge 1 === 2 W : 2
+MST Edge 1 === 4 W : 4
+MST Edge 2 === 3 W : 7
+```
+
+0, 1 => 1,2 => 1, 4 => 2, 3 순서대로 간선이 연결되면서 weight 가 가장 낮은 트리가 완성된다. 
