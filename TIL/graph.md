@@ -478,3 +478,176 @@ MST Edge 2 === 3 W : 7
 ```
 
 0, 1 => 1,2 => 1, 4 => 2, 3 순서대로 간선이 연결되면서 weight 가 가장 낮은 트리가 완성된다. 
+
+
+
+
+
+#### 2020-06-08 
+
+# Dijkstra 
+
+* 현재 시작점을 기준으로 나머지 모든 점에 대해서 최단거리를 구한다. 
+* 주의 : 모든 가충지가 음수가 아닐때문 사용할 수 있다. 
+
+
+
+#### Basic Idea 
+
+* 방문하지 않은 점 중 값이 가장 작은 점을 방문한다. 
+* 그 점을 통해서 갈 수 있는 점 중에서 아직 방문하지 않은 점의 값이 이전에 기록한 값보다 작으면 그 거리를 갱신한다. 
+
+
+
+#### 필요한 자료구조 
+
+* class Node 
+* clsas Dijstra 
+* Node [] graph 
+* Dijkstra [] dTable 
+
+
+
+```java
+    private class Node{
+        int vertex;
+        int weight;
+        Node next;
+        public Node(int vertex, int wieght, Node next){
+            this.vertex = vertex;
+            this.weight = wieght;
+            this.next = next;
+        }
+    }
+
+    private Node [] graph = new Node[NUM_VERTEX];
+
+    private class Dijkstra{
+        int found;
+        int distance;
+        int prevVertex;
+        public Dijkstra(int found, int distance, int prevVertex) {
+            this.found = found;
+            this.distance = distance;
+            this.prevVertex = prevVertex;
+        }
+    }
+
+    private Dijkstra [] dTable = new Dijkstra[NUM_VERTEX];
+```
+
+* 이전과 다름 점은 Node 에 weight 값이 추가되었다는 점. 
+* 다익스트라 클래스에는 found - 방문 했는지 여부, distance - 해당 점까지 이동해야 하는 거리, prevVertex - 이전 정점에 대한 정보가 담겨져 있다. 
+
+
+
+#### 간선 추가하기
+
+* 이전과 동일한 방법으로 Node 의 리스트로 graph 배열에 연결해 나간다. 
+* doReverse 를 1 로 설정해서 역방향도 담을 수 있도록 한다. 
+
+
+
+#### 방문 Cost, 방문 여부 등을 담을 dTable 초기화 
+
+```java
+    public void initDtable(){
+        for (int i = 0; i < NUM_VERTEX; i++) {
+            dTable[i] = new Dijkstra(0, 99999, -1);
+        }
+    }
+```
+
+* found 값은 0으로 초기화 : 아직 아무곳도 방문하지 않았으므로. 
+* distance 값은 큰 숫자로 초기화. (이것보다 짧은 거리가 나오면 무조건 업데이트 해야 하므로 우선 큰 숫자로 초기화 하여 작은 값으로 업데이트 될 수 있도록 한다. )
+* prevVertex 값은 -1 로 초기화
+
+
+
+#### 다익스트라 알고리즘의 과정 
+
+```java
+    public void doDijkstra(int v){
+        int nextVertex = -1;
+        dTable[v].distance = 0;
+
+        while ((nextVertex = findDijkstraNextVertex()) != -1){
+            dTable[nextVertex].found = 1; //최단 거리를 찾았다고 표시
+            updateDtable(nextVertex);
+        }
+        showDtable();
+    }
+```
+
+* 현재 정점에서 이동할 수 있는 정점이 있을 때, 그 중에서 가장 작은 weight 값을 가진 정점을 반환한다. (nextVertex 를 업데이트 한다.)
+* dTable 에다가 해당 정점을 방문했다고 (found = 1) 표시한다. 
+* dTable 을 업데이트 한다. (distance 와 prevVertex 에 대한 정보를 업데이트.)
+
+
+
+#### 현재 정점에서 이동할 다음 정점 찾기 
+
+```java
+    public int findDijkstraNextVertex(){
+        int shortestDistance = 99999;
+        int smallestVertex = -1;
+        for (int i = 0; i < NUM_VERTEX; i++) {
+            if(dTable[i].found == 0 &&
+            dTable[i].distance < shortestDistance){
+                shortestDistance = dTable[i].distance;
+                smallestVertex = i;
+            }
+        }
+        return smallestVertex;
+    }
+```
+
+* 모든 정점들을 순회하면서 
+  * 아직 방문하지 않았는가? 
+  * 방문하지 않았다면 현재 정점으로부터 거리가 가장 짧은가? 를 확인한다. 
+
+
+
+#### 거리 정보 업데이트 하기 
+
+```java
+    public void updateDtable(int v){
+        Node curNode = graph[v];
+        while(curNode != null){
+
+            if(dTable[curNode.vertex].found == 0 &&
+            dTable[curNode.vertex].distance > dTable[v].distance + curNode.weight){
+                dTable[curNode.vertex].distance = dTable[v].distance + curNode.weight;
+                dTable[curNode.vertex].prevVertex = v;
+            }
+            curNode = curNode.next;
+        }
+    }
+```
+
+* 현재 노드가 null 이 아닐때 까지 
+  * dTable 에서 현재 노드의 정점이 방문되지 않았고, 
+  * dTable 에서 현재 노드의 정점까지의 거리가 업데이트 될 정점까지의 거리 + 현재 노드의 weight 값 보다 크다면 
+    * 거리와 이전 정점을 업데이트 한다. 
+  * 만약 거리가 업데이트 되지 않는게 더 짧으면 그냥 다음 노드로 넘어간다. 
+
+
+
+출력 결과 
+
+```
+[노드넘버/방문여부/거리/이전정점]
+0 : 	1 0 -1 
+1 : 	1 1 0 
+2 : 	1 3 0 
+3 : 	1 10 2 
+4 : 	1 5 0
+```
+
+0에서 1까지 최단 거리는 1 
+
+0에서 4까지 최단 거리는 5 
+
+0에서 2까지 최단 거리는 3 
+
+**0에서 3까지 최단 거리는 10 이며, 0과 2를 거쳐 가야만 한다.** 
