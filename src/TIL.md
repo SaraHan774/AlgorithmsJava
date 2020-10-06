@@ -117,4 +117,22 @@ Arrays.sort(intervals, comparator);
 #### 2020-05-29 
 * 클래스의 필드값으로 접근해서 값을 setting 하는 것과, getter 로 접근해서 
 값을 set 하는 것은 다르다. get 한 결과가 null 이면, 해당 필드에는 값을 set 할 수 없다. 
-  
+ 
+## 2020-10 
+
+#### 2020-10-06 
+* Java 에서 Heap 을 사용하고자 할 때는 PriorityQueue 클래스를 사용한다. 
+* 기본적으로는 Min Heap 이며, Max Heap 으로 사용하고자 할 때는 생성자에 Comparator 를 다시 만들어서 넣어주어야 한다. 
+
+```java
+    PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> -Integer.compare(o1, o2));
+```
+
+* Enhanced For loop 를 잘 사용하자. 
+
+```java
+    for (int stone : stones) {
+        maxHeap.add(stone);
+    }
+```
+
