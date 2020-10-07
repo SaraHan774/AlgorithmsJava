@@ -136,3 +136,6 @@ Arrays.sort(intervals, comparator);
     }
 ```
 
+#### 2020-10-07 
+* Arrays.sort() 는 듀얼 피봇 퀵소트를 사용하며 성능은 NlogN 이다. 
+* loop 를 두 번 돌아야 할 때 이렇게 하지 않아도 되는 방법이 있는지 생각해보자 !   
