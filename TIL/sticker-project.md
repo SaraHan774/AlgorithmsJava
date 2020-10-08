@@ -6,3 +6,6 @@
 
 #### 2020-10-07 
 * [배열 제곱해서 소팅하기 문제 풀이](https://www.evernote.com/l/AXovT7gm5mpFxYhAO8JEfy2zOQocY6DVXmo/)
+
+#### 2020-10-08 
+* [중복된 숫자 찾기](https://www.evernote.com/l/AXoDaSHrI8FPu6hFGYLuzhqOc374h0d38eU/)
