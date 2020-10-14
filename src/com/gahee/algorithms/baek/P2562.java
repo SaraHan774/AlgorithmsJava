@@ -31,7 +31,12 @@ public class P2562 {
             priorityQueue.offer(num);
             map.put(num, i+1);
         }
-        int max = priorityQueue.poll();
+
+        //poll() 하면 null pointer exception 을 던질 수 있음.
+        int max = 0;
+        if(!priorityQueue.isEmpty()){
+            max = priorityQueue.poll();
+        }
         System.out.println(max);
         System.out.println(map.get(max));
         //숫자가 들어올때마다 힙을 만든다?

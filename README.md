@@ -12,3 +12,4 @@
 
 ### Tracking Growth 
 * [알고리즘 스티커 챌린지](https://docs.google.com/document/d/1FPv4DZzGvhpBymgTOMZcmJU8vpICwJsh_axi21vbTFg/edit?usp=sharing)
+* [Evernote link for my algorithms study](https://www.evernote.com/pub/sarahan774/algorithms)
