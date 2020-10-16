@@ -8,7 +8,7 @@ public class SelectionSortMain {
 
         String [] strings = {"s", "s", "t", "s", "q"};
 
-        Selection selection = new Selection();
+        MySelection selection = new MySelection();
         selection.sort(strings);
 
         System.out.println(Arrays.toString(strings));
