@@ -142,3 +142,6 @@ Arrays.sort(intervals, comparator);
 
 #### 2020-10-08 
 * **중복 => 해시 를 떠올리는 것이 효율적이다.** O(1) 만에 탐색이 가능하다. 
+
+#### 2020-10-14 
+* PriorityQueue 의 poll 함수는 비어있으면 null 를 반환한다. 반드시 isEmpty 로 확인한 후 poll 연산을 쓰도록 하자. 
