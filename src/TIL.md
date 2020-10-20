@@ -144,4 +144,19 @@ Arrays.sort(intervals, comparator);
 * **중복 => 해시 를 떠올리는 것이 효율적이다.** O(1) 만에 탐색이 가능하다. 
 
 #### 2020-10-14 
-* PriorityQueue 의 poll 함수는 비어있으면 null 를 반환한다. 반드시 isEmpty 로 확인한 후 poll 연산을 쓰도록 하자. 
+* PriorityQueue 의 poll 함수는 비어있으면 null 를 반환한다. 반드시 isEmpty 로 확인한 후 poll 연산을 쓰도록 하자.
+
+#### 2020-10-20 
+* 배열을 풀로 2중 순회하기 전에 그렇지 않아도 되는 방법이 있는지 확인하기.
+* nCk 로 풀 수 있음에도 N*N 으로 푸는 일은 있어서는 안된닷 ... 
+
+```java
+for (int i = 0; i < phone_book.length; i++) {
+            for (int j = i + 1; j < phone_book.length; j++) {
+                //j 가 i 의 접두사가 되는가? 
+                if(phone_book[i].startsWith(phone_book[j])){return false;}
+                //i 가 j의 접두사가 되는가? 
+                if(phone_book[j].startsWith(phone_book[i])){return false;}
+            }
+        }
+```  

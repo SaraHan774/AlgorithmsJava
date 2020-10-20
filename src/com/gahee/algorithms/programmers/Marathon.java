@@ -21,22 +21,21 @@ public class Marathon {
 
         HashMap<String, Integer> partMap = new HashMap<>();
 
-        for (int i = 0; i < participant.length; i++) {
+        for (String s : participant) {
             int count = 1;
-            String part = participant[i];
 
-            if(partMap.get(part) == null){
-                partMap.put(part, count);
-            }else{
-                count = partMap.get(part);
-                partMap.put(part, ++count);
+            if (partMap.get(s) == null) {
+                partMap.put(s, count);
+            } else {
+                count = partMap.get(s);
+                partMap.put(s, ++count);
             }
         }
 
-        for (int i = 0; i < completion.length; i++) {
-            if(partMap.containsKey(completion[i])){
-                int v = partMap.get(completion[i]);
-                partMap.put(completion[i], --v);
+        for (String s : completion) {
+            if (partMap.containsKey(s)) {
+                int v = partMap.get(s);
+                partMap.put(s, --v);
             }
         }
 
