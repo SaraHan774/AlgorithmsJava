@@ -22,7 +22,7 @@ Singly Linked List 는 항상 헤드로부터 타고 들어가서 접근한다. 
 Scanner sc = new Scanner(System.in); 
 ...
 while(sc.hasNext()){ ... } 
-```    
+```
 를 하는 경우 `System.in` 으로 인하여 계속해서 입력 대기 상태에 머물게 된다. 
 
 #### 2020-03-17 
@@ -100,7 +100,7 @@ Arrays.sort(intervals, comparator);
                 index++;
             }
         }
-``` 
+```
 
 #### 2020-05-12 
 * String 을 다루는 데 있어서 기본적인 것들 
@@ -117,7 +117,7 @@ Arrays.sort(intervals, comparator);
 #### 2020-05-29 
 * 클래스의 필드값으로 접근해서 값을 setting 하는 것과, getter 로 접근해서 
 값을 set 하는 것은 다르다. get 한 결과가 null 이면, 해당 필드에는 값을 set 할 수 없다. 
- 
+
 ## 2020-10 
 
 #### 2020-10-06 
@@ -144,4 +144,55 @@ Arrays.sort(intervals, comparator);
 * **중복 => 해시 를 떠올리는 것이 효율적이다.** O(1) 만에 탐색이 가능하다. 
 
 #### 2020-10-14 
-* PriorityQueue 의 poll 함수는 비어있으면 null 를 반환한다. 반드시 isEmpty 로 확인한 후 poll 연산을 쓰도록 하자. 
+* PriorityQueue 의 poll 함수는 비어있으면 null 를 반환한다. 반드시 isEmpty 로 확인한 후 poll 연산을 쓰도록 하자.
+
+#### 2020-10-20 
+* 배열을 풀로 2중 순회하기 전에 그렇지 않아도 되는 방법이 있는지 확인하기.
+* nCk 로 풀 수 있음에도 N*N 으로 푸는 일은 있어서는 안된닷 ... 
+
+```java
+for (int i = 0; i < phone_book.length; i++) {
+            for (int j = i + 1; j < phone_book.length; j++) {
+                //j 가 i 의 접두사가 되는가? 
+                if(phone_book[i].startsWith(phone_book[j])){return false;}
+                //i 가 j의 접두사가 되는가? 
+                if(phone_book[j].startsWith(phone_book[i])){return false;}
+            }
+        }
+```
+
+* PhoneBook 문제에 대한 다른 풀이 
+
+```java
+class Solution {
+    public boolean solution(String[] phone_book) {
+      boolean answer = true;
+
+        String k;
+        for (int i = 0; i < phone_book.length; i++) {
+            k = phone_book[i];
+            int lenK = k.length(); 
+            for (int j = i + 1; j < phone_book.length; j++) {
+                String p = phone_book[j]; 
+                int lenP = p.length(); 
+                
+                if(lenP >= lenK){
+                    String pSub = p.substring(0, lenK);
+                    if(pSub.equals(k)){
+                        answer = false; 
+                        return answer; 
+                    }
+                }else{
+                    String kSub = k.substring(0, lenP);
+                    if(kSub.equals(p)){
+                        answer = false; 
+                        return answer; 
+                    }
+                }
+            }
+        }
+        return answer;
+    }
+}
+```
+
