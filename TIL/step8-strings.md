@@ -15,7 +15,7 @@ StringBuilder answer = new StringBuilder();
                 answer.append("L");
                 leftNum = n;
         ... 
-``` 
+```
 * 카카오 여름 인턴십 문제를 풀어보았다. 한 문제 밖에 제대로 풀지 못했지만, 
 그래도 문제를 보니 1년 동안 집중해서 공부하면 될 수 있을 것이라는 확신이 들었다. 
 정해진 계획들을 잘 따라서 앞으로 정말 열심히 한 번 해봐야지. 
@@ -32,7 +32,7 @@ for (int i = 0; i < N; i++) {
             K = (int)numbers[i] - 48;
             answer += K;
         }
-``` 
+```
 
 3. [알파벳이 들어있다면 찾은 위치 출력하기](../src/com/gahee/algorithms/baek/P10809.java)
     * ASCII 값으로 소문자 a 는 97 이고 z 는 122 이다. 
@@ -45,7 +45,7 @@ for (int i = 0; i < 26; i++) {
             System.out.print(input.indexOf((char)(i+97)) + " ");
         }
 ```
- 
+
 * **위와 같이 `String.indexOf()` 를 사용하면 정말 한줄로 풀 수 있는 문제였다.** 
 
 4. [주어진 횟수만큼 반복해서 출력하기](../src/com/gahee/algorithms/baek/P2675.java)
@@ -170,4 +170,81 @@ int answer = 0;
         * StringBuilder 에다가 문자를 일단 append 하고, 검사 대상 문자가 문자열 안에 들어가 있다면 
         해당 문자의 인덱스가 StringBuilder 의 길이 - 1 과 같은지 다른지 검사하는 방법이 있다. 
         * 만약 연이어 있지 않으면 그룹 단어가 아니므로 boolean isGroup 을 false 로 해준다. 
-        
+    
+    
+#### 2020-10-21 
+
+## Palindrome 
+
+#### Watch out for alphanumeric hits!
+* alphanumeric 이라면, `[a-zA-Z0-9]` 인 것들을 뜻한다. 따라서 이들이 아닌 것들을 "" 로 replace 하고 싶으면, 다음과 같은 연산을 
+사용할 수 있다.  
+
+```java
+String.replaceAll("[^a-zA-Z0-9]", "") 
+```
+
+* 아스키 번호로 걸러내고자 하는 경우에는 97~122 번이 아닌 것들, 48 ~ 57 번이 아닌 것들을 걸러내면 된다.  
+
+```java
+if (ascii <= 122 && ascii >= 97) {
+    stringBuilder.append((char) ascii);
+}else if(ascii >= 48 && ascii <= 57){
+    stringBuilder.append((char) ascii); //numeric characters
+}
+```
+
+#### Stack solution 
+
+* 유효한 알파벳들을 걸러낸 이후에는 이 단어가 회문인지 알아내야 한다. 
+* 나이브한 솔루션으로는 스택을 써서 
+    1. 모든 단어들을 스택에 넣고 
+    2. 주어진 단어와 스택에서 pop() 한 단어를 비교하여 회문임을 판별한다. 
+    
+#### Two-pointer solution 
+
+* 스택 객체를 사용하는 것은 객체가 갖는 기본적은 16바이트 오버헤드 외에, 속도를 저하시키는 요인들이 있다. 
+예를들어, 스택에 모두 담으려면 적어도 O(N) 만큼 배열을 다 순회해야 한다. 
+* 좀 더 효율적인 방법으로는 두 개의 left, right 라는 변수를 두고, 이를 포인터로 삼아 양 끝에서 가운데로 이동하며 
+배열을 요소들을 비교하는 방법이 있다. 
+* 투포인터를 사용하면 유효한 알파뉴메릭 캐릭터를 걸러서 새로운 String 을 만드는 작업 또한 불필요하다. 
+(물론 스택 구현에서도 비슷한 방법을 쓸 수 있겠으나.) 
+* 양 끝의 단어들을 비교하는 데, 이 때 한 쪽의 끝이 알파뉴메릭이 아니라면 그냥 다음 단어로 넘어간다. 
+두 단어들이 모두 비교 가능한 알파뉴메릭 단어일 때 같은 단어인지 판별하고, 아니라면 false 를 반환한다. 
+
+#### Two pointer 예시 
+
+![image-20201021125624446](image-20201021125624446.png)
+
+```java
+public static boolean isPalindromeTwoPointer(String s){
+    int left = 0;
+    int right = s.length() - 1;
+    s = s.toLowerCase();
+
+    while(left < right){
+        if(!isAlphaNumeric(s.charAt(left))){
+            left++;
+            continue;
+        }
+        if(!isAlphaNumeric(s.charAt(right))){
+            right--;
+            continue;
+        }
+        //they are now both alphanumeric characters.
+        if(s.charAt(left) != s.charAt(right)){
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+}
+
+public static boolean isAlphaNumeric(char c){
+    return (c >= 48 && c <= 57) || (c >= 97 && c <= 122);
+}
+```
+
+* 구현시 주의할 것 
+  * 반드시 continue 를 넣어주어야 한다. 안그러면 밑의 if 문 까지 다 실행되버림. 

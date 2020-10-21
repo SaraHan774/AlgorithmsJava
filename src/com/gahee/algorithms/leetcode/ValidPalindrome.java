@@ -7,8 +7,10 @@ public class ValidPalindrome {
         String test =  "A man, a plan, a canal: Panama";
         String test1 = "race a car";
         String test2 = "0P";
-        boolean result = isPalindrome(test2);
+        boolean result = isPalindrome(test);
+        boolean result1 = isPalindromeTwoPointer(test);
         System.out.println(result);
+        System.out.println(result1);
     }
 
     public static boolean isPalindrome(String s) {
@@ -37,5 +39,33 @@ public class ValidPalindrome {
             }
         }
         return true;
+    }
+
+    public static boolean isPalindromeTwoPointer(String s){
+        int left = 0;
+        int right = s.length() - 1;
+        s = s.toLowerCase();
+
+        while(left < right){
+            if(!isAlphaNumeric(s.charAt(left))){
+                left++;
+                continue;
+            }
+            if(!isAlphaNumeric(s.charAt(right))){
+                right--;
+                continue;
+            }
+            //they are now both alphanumeric characters.
+            if(s.charAt(left) != s.charAt(right)){
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static boolean isAlphaNumeric(char c){
+        return (c >= 48 && c <= 57) || (c >= 97 && c <= 122);
     }
 }
