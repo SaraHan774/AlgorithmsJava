@@ -176,7 +176,7 @@ int answer = 0;
 
 ## Palindrome 
 
-#### Watch out for alphanumeric hits!
+#### Watch out for alphanumeric hints!
 * alphanumeric 이라면, `[a-zA-Z0-9]` 인 것들을 뜻한다. 따라서 이들이 아닌 것들을 "" 로 replace 하고 싶으면, 다음과 같은 연산을 
 사용할 수 있다.  
 
@@ -203,7 +203,7 @@ if (ascii <= 122 && ascii >= 97) {
     
 #### Two-pointer solution 
 
-* 스택 객체를 사용하는 것은 객체가 갖는 기본적은 16바이트 오버헤드 외에, 속도를 저하시키는 요인들이 있다. 
+* 스택 객체를 사용하는 것은 객체가 갖는 기본적인 16바이트 오버헤드 외에, 속도를 저하시키는 요인들이 있다. 
 예를들어, 스택에 모두 담으려면 적어도 O(N) 만큼 배열을 다 순회해야 한다. 
 * 좀 더 효율적인 방법으로는 두 개의 left, right 라는 변수를 두고, 이를 포인터로 삼아 양 끝에서 가운데로 이동하며 
 배열을 요소들을 비교하는 방법이 있다. 
