@@ -196,3 +196,7 @@ class Solution {
 }
 ```
 
+#### 2020-12-05
+* 우선순위 Heap 을 이용한 문제풀이
+* 스코빌지수 구하기 문제 [(코드)](../src/com/gahee/algorithms/programmers/Scoville1.java)
+* 교훈 : 좀 더 적극적으로 테스트 케이스를 만들어서 코드를 시험해보자. 
