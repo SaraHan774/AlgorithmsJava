@@ -1,10 +1,14 @@
 ### Programming Assignment No.1 
+- 카라수바 프로덕트 [코드](KaratsubaProduct.java)
 
 ### Programming Assignment No.2
+- 머지소트를 이용해서 Inversion Count 하기 [코드](InversionDivideAndConquer.java)
 
 ### Programming Assignment No.3 
+- 퀵소트에서 pivot 을 다양하게 설정해보고 성능 비교하기 [코드](Quick.java)
 
 ### Programming Assignment No.4 
+- 카거 알고리즘으로 그래프의 최소 절단 카운팅하기 [코드](KargerMinCut.java)
 
 #### 문제 
 
@@ -25,4 +29,9 @@
   1. 랜덤하게 하나의 간선을 선택한다. 
   2. 간선 위의 두 정점을 합친다. 
   3. 만약 자기 자신을 가리키는 간선이 생긴다면 이를 제거하라 
-  4. 그래프 상에서 정점이 2개밖에 남지 않을 때 까지 이를 반복하라. 
+  4. 그래프 상에서 정점이 2개밖에 남지 않을 때 까지 이를 반복하라.
+  
+- API 를 먼저 설계해보기 ! (**성급하게 구현하지 말것**)
+  1. main 함수에서 min cut 을 구하는 함수를 여러 번 호출할 수 있도록 한다. 
+  2. minCut(HashMap<Integer, ArrayList> adjList, ArrayList<Integer> vertices)
+  3. 두 정점을 고르기 위한 함수도 필요함! 
