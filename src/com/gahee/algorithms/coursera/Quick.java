@@ -43,6 +43,7 @@ public class Quick {
         }
     }
 
+    //162085
     public static int partition(int [] arr, int left, int right){
         int i = left + 1;
         int pivot = arr[left];
@@ -92,6 +93,7 @@ public class Quick {
         return (i + 1);
     }
 
+    //160361 -- 오답이라고 ..
     public static int partitionPivotEnd(int [] arr, int left, int right){
         int i = left;
         int pivot = arr[right];
@@ -113,4 +115,43 @@ public class Quick {
         arr[right] = k;
         return i;
     }
+
+    public static int partitionPivotMedian(int [] arr, int left, int right){
+        int i = left;
+        //int med = arr.length/2 - 1;
+        //int pivot = arr[med];
+//        System.out.println("\n\npivot = " + pivot);
+
+        // Selecting the  pivot
+        int first = left;
+        int second = (right - left)/2;
+        int third = right;
+        // median for first three
+        int pivot = Math.max(Math.min(arr[first],arr[second]),
+                Math.min(Math.max(arr[first],arr[second]),arr[third]));
+
+
+        //j 는 계속 증가함
+        for (int j = left; j < right; j++) {
+            comparisons++;
+            if(arr[j] < pivot){
+                //swap a[j] and a[i]
+//                System.out.println("swap " + arr[j] + " <=> " + arr[i]);
+                int a = arr[j];
+                arr[j] = arr[i];
+                arr[i] = a;
+                i++;
+                //swap 이 이루어지면 i 도 증가시킴
+            }
+        }
+        //arr[left] <-> arr[i - 1]
+//        System.out.println("swap pivot " + arr[left] + " <==> " + arr[i - 1]);
+        int a = arr[left];
+        arr[left] = arr[i];
+        arr[i] = a;
+//        System.out.println(Arrays.toString(arr) + "\n\n");
+        return (i);
+    }
+
+
 }

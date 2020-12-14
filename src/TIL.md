@@ -203,4 +203,38 @@ class Solution {
 
 #### 2020-12-06 
 * 교훈 : 문제를 읽고 바로 구현하려 들기보다는 로직을 잘 설계하는 데 초점을 맞추자. 
-나의 코드에 대해서 좀 더 확신을 가져야 한다. 
+나의 코드에 대해서 좀 더 확신을 가져야 한다.
+  
+#### 2020-12-14 
+* 2D 배열을 첫번째것 기준으로 정렬할 경우 
+
+```java
+Arrays.sort(jobs, Comparator.comparingInt(o -> o[0]));
+```
+
+* 클래스를 Comparable 로 만들 때 
+* 클래스를 만들어야 할 경우 가급적 toString 을 오버라이딩 하는 것을 습관화 하자. 
+```java
+    static class Job implements Comparable{
+        int reqTime;
+        int duration;
+
+        public Job(int reqTime, int duration) {
+            this.reqTime = reqTime;
+            this.duration = duration;
+        }
+
+        @Override
+        public int compareTo(Object o) {
+            return Integer.compare(this.duration, ((Job)o).duration);
+        }
+
+        @Override
+        public String toString() {
+            return "Job{" +
+                    "reqTime=" + reqTime +
+                    ", duration=" + duration +
+                    '}';
+        }
+    }
+```
