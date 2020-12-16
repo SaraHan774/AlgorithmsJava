@@ -4,18 +4,18 @@
 앞으로 갈 길이 멀다. 열심히 만으로는 부족하다. 
 좀 더 끈질기게, 나 자신을 채찍질 하여야 한다. 
 
-### 2020-11-30
+### 2020-11-30 ~ 2020-12-16 
 
 ### 해시 
 
-- 완주하지 못한 선수 
-- 전화번호 목록 
+- 완주하지 못한 선수 : [코드](../src/com/gahee/algorithms/programmers/Marathon.java) 
+- 전화번호 목록 : [코드](../src/com/gahee/algorithms/programmers/PhoneBook.java)
 - **위장** : [코드](../src/com/gahee/algorithms/programmers/Spy1.java)
-- **베스트앨범** 
+- **베스트앨범** : [코드](../src/com/gahee/algorithms/programmers/BestAlbum.java) 
 
 ### 스택 & 큐 
 
 - **주식가격** : [코드](../src/com/gahee/algorithms/programmers/StockPrice1.java)
 - **기능개발** : [코드](../src/com/gahee/algorithms/programmers/Progress1.java)
-- **다리를 지나는 트럭** 
-- **프린터** 
+- **다리를 지나는 트럭** : [코드](../src/com/gahee/algorithms/programmers/BridgeTruck2.java)
+- **프린터** : [코드](../src/com/gahee/algorithms/programmers/Printer2.java)
