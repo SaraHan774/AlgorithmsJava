@@ -238,3 +238,8 @@ Arrays.sort(jobs, Comparator.comparingInt(o -> o[0]));
         }
     }
 ```
+
+#### 2020-12-16 
+* 프린터 문제 풀이 [(코드)](../src/com/gahee/algorithms/programmers/Printer2.java)
+* class Job 을 만들어서 풀었는데 클래스 없이 푼 코드를 보아도 이해가 잘 안된다 ㅠㅠ 
+* 남이 짠 코드를 잘 이해하려면 어떻게 해야할까 ... 너무 어렵쓰. 
