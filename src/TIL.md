@@ -243,3 +243,9 @@ Arrays.sort(jobs, Comparator.comparingInt(o -> o[0]));
 * 프린터 문제 풀이 [(코드)](../src/com/gahee/algorithms/programmers/Printer2.java)
 * class Job 을 만들어서 풀었는데 클래스 없이 푼 코드를 보아도 이해가 잘 안된다 ㅠㅠ 
 * 남이 짠 코드를 잘 이해하려면 어떻게 해야할까 ... 너무 어렵쓰. 
+
+#### 2020-12-18 
+* Double Ended Priority Queue 를 구현하는 문제!
+* 최대값과 최소값을 찾는 것을 둘 다 상수 시간 안에 하고 싶을 때 필요한 자료구조. 
+* max heap min heap 양 쪽에 서로의 노드간에 포인터가 있어야 한다. 제대로 구현하는건 어떻게 될지 잘 모르겠음. 
+* [코드](../src/com/gahee/algorithms/programmers/DoublePriorityQueue.java)
