@@ -87,16 +87,16 @@ public class DoublePriorityQueue {
         }
     }
 
-    static class Node implements Comparable{
+    static class Node implements Comparable<Node>{
         int element;
         public Node(int element){
             this.element = element;
         }
 
         @Override
-        public int compareTo(Object o) {
+        public int compareTo(Node o) {
             //reverse order
-            return Integer.compare(this.element, ((Node) o).element);
+            return Integer.compare(this.element, o.element);
         }
     }
 }
