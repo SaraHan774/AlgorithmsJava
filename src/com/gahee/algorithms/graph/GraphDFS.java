@@ -76,7 +76,7 @@ public class GraphDFS {
         return -1;
     }
 
-    private class Node{
+    public class Node{
         //본 클래스에서만 사용될 것이므로 private inner class 로 만들었다.
         int v;
         Node next;

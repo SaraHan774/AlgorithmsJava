@@ -249,3 +249,9 @@ Arrays.sort(jobs, Comparator.comparingInt(o -> o[0]));
 * 최대값과 최소값을 찾는 것을 둘 다 상수 시간 안에 하고 싶을 때 필요한 자료구조. 
 * max heap min heap 양 쪽에 서로의 노드간에 포인터가 있어야 한다. 제대로 구현하는건 어떻게 될지 잘 모르겠음. 
 * [코드](../src/com/gahee/algorithms/programmers/DoublePriorityQueue.java)
+
+#### 2020-12-26 
+* 백준에서 DFS BFS 구현 문제를 풀었다. 우습게 보았으나 5번의 런타임 에러 끝에 반례를 발견하였다. 
+* 2-3 / 1 과 같이 1이 다른 노드들과 연결되어 있지 않은 경우, 1부터 탐색을 시작하면 1을 출력하고 바로 프로그램이 종료되어야 한다. 
+하지만 이런 에러 처리를 해주지 않았기 때문에 계속해서 런타임 에러가 발생하였다. .... 😖
+* [DFS&BFS](../src/com/gahee/algorithms/baek/P1260.java)
