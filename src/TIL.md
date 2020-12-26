@@ -255,3 +255,8 @@ Arrays.sort(jobs, Comparator.comparingInt(o -> o[0]));
 * 2-3 / 1 과 같이 1이 다른 노드들과 연결되어 있지 않은 경우, 1부터 탐색을 시작하면 1을 출력하고 바로 프로그램이 종료되어야 한다. 
 하지만 이런 에러 처리를 해주지 않았기 때문에 계속해서 런타임 에러가 발생하였다. .... 😖
 * [DFS&BFS](../src/com/gahee/algorithms/baek/P1260.java)
+<br/><br/>
+
+* 프로그래머스 네트워크 문제 풀이 [코드](../src/com/gahee/algorithms/programmers/Network1.java)
+* BFS 로 탐색 하면서 뭉쳐있는? 컴포넌트들이 몇 개 있는지 세는 방식으로 구현했다... 사실 뭔가 삘로 구현한 것이기 때문에 
+정확히 왜 이렇게 설계했고, 왜 맞았는지 자신있게 얘기하지는 못하겠음 ... ;;; 
