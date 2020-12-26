@@ -10,6 +10,11 @@
 * [Blog : Fenwick Tree](https://www.acmicpc.net/blog/view/21)
 * [Blog : Segment Tree](https://www.acmicpc.net/blog/view/9)
 
+#### DFS&BFS 집중 연습 
+* [백준 단계별 풀이 - DFS, BFS](https://www.acmicpc.net/step/24)
+    1. [P1260](src/com/gahee/algorithms/baek/P1260.java)
+    
+
 ### Tracking Growth 
 * [알고리즘 스티커 챌린지](https://docs.google.com/document/d/1FPv4DZzGvhpBymgTOMZcmJU8vpICwJsh_axi21vbTFg/edit?usp=sharing)
 * [Evernote link for my algorithms study](https://www.evernote.com/pub/sarahan774/algorithms)
