@@ -53,7 +53,7 @@ public class ShortestPath {
 
         int [] targets = {7,37,59,82,99,115,133,165,188,197};
         shortestPathAlg.computeShortestPath(1);
-        //System.out.println(Arrays.toString());
+//        System.out.println(Arrays.toString(shortestPathAlg.D));
         shortestPathAlg.printDistance(targets);
     }
 
@@ -106,6 +106,8 @@ public class ShortestPath {
                         pq.remove(D[edge.vertextTo]);
                         pq.add(D[edge.vertextTo]);
                     }
+
+                    System.out.println(pq);
                 }
                 visited[cur.vertex] = true;
             }
@@ -149,7 +151,7 @@ public class ShortestPath {
 
         @Override
         public String toString() {
-            return String.valueOf(distance);
+            return "V : " + vertex + " D: " + distance + "  ";
         }
     }
 }
