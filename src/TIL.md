@@ -291,3 +291,14 @@ heapLow = [-10000]
 heapHigh = [100, 10000]
 이런 상황일 때는 heapHigh 의 100을 반환해 주어야 함. 
 ```
+
+#### 2021-01-05 
+* 코세라 과제 : Median 을 Heap 두개를 두어서 찾는것 [코드](../src/com/gahee/algorithms/coursera/Median.java)
+* 백준 문제를 풀면서 구현했던 코드와 거의 동일하다. if-else 문의 구성만 약간씩 다르다. 
+* 이 외에 코세라에서 주는 사이즈가 큰 txt 파일을 실수로 git add 해버린 것을 리셋하는 방법을 배웠다. 
+
+```
+git reset HEAD <FILE_NAME> 
+```
+
+* 위와같이 하면 해당 파일이 git 에서 트래킹 되지 않는다. 
