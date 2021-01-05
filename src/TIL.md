@@ -283,7 +283,8 @@ Arrays.sort(jobs, Comparator.comparingInt(o -> o[0]));
 * 백준 가운데를 말해요 문제 [코드](../src/com/gahee/algorithms/baek/P1655.java)
 * 두 heap 의 사이즈를 밸런싱 해주는 로직을 간과할 수 있다 .. 조심하기 
 * 반환할 때 만약 heapHigh 의 사이즈가 더 크다면 중간값을 반환할 수 있도록 로직을 추가해야 한다.
-
+* NlogN => **숫자가 들어올 때 마다 말해줘야 하는게 포인트**
+* (정렬로 푸는 경우) 만약 들어올 때 마다 정렬을 해야하면 N^2logN
 ```
 ex) 
 heapLow = [-10000] 

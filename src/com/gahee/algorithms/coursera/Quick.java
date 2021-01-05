@@ -126,7 +126,7 @@ public class Quick {
         int first = left;
         int second = (right - left)/2;
         int third = right;
-        // median for first three
+        // median.txt for first three
         int pivot = Math.max(Math.min(arr[first],arr[second]),
                 Math.min(Math.max(arr[first],arr[second]),arr[third]));
 
