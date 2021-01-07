@@ -302,3 +302,58 @@ git reset HEAD <FILE_NAME>
 ```
 
 * 위와같이 하면 해당 파일이 git 에서 트래킹 되지 않는다. 
+
+#### 2021-01-07
+* 프로그래머스 실력체크 [레벨 1 - 문제 1](../src/com/gahee/algorithms/programmers/StringToNumber.java)
+* 프로그래머스 실력체크 [레벨 1 - 문제 2](../src/com/gahee/algorithms/programmers/NTimesArray.java)
+* 프로그래머스 실력체크 레벨 2 - 문제 1 (기능개발 문제는 예전에 풀었어서 스킵 ...)
+* 프로그래머스 실력체크 [레벨 2 - 문제 2](../src/com/gahee/algorithms/programmers/BinaryConverter.java)
+
+
+
+#### Character.isXXX() 메서드 탐색하기 
+```java
+    private static void charTesting(){
+        String s = "av123er   tgs---1781920380r0((^^&*()=";
+        char [] chars = s.toCharArray();
+        for (char c : chars) {
+            if(Character.isDigit(c)){
+                System.out.println(c + " is digit");
+            }
+            else if(Character.isAlphabetic(c)){
+                System.out.println(c + " is alphabet");
+            }
+            else if(Character.isSpaceChar(c)){
+                System.out.println("space char");
+            }
+            else{
+                System.out.println("what is this ? " + c);
+            }
+            if(Character.isLetterOrDigit(c)){
+                System.out.println(c +  " is letter or digit");
+            }
+        }
+    }
+```
+
+#### 이진수로 변환하는 방법 
+* 숫자를 2로 나눈 결과가 0보다 클 동안 2로 나눈 나머지를 스트링 빌더에 어펜드 한다. 
+* 결과를 reverse() 함수로 뒤집어준다. 
+* 예시 코드 [MakeBinary.java](../src/com/gahee/algorithms/programmers/MakeBinary.java)
+```java
+    public static void main(String[] args) {
+        int num = 17;
+        StringBuilder stringBuilder = new StringBuilder();
+        while(num/2 > 0){
+        stringBuilder.append(num%2);
+        num = num/2;
+        }
+        System.out.println("num => " + num);
+        // 4 / 2 => 2 / 2 => 1 / 2 => 1, 0, 0 순서대로 와야 함. 
+        // 5 / 2 => 2 / 2 => 1 / 2 => 1, 0, 0, 1 이 되어야 함. 
+        // 이렇게 되므로 ... 마지막에는 항상 1이 나오는 것을 append 해주어야 함. 
+        stringBuilder.append("1");
+
+        System.out.println(stringBuilder.reverse());
+        } 
+```
