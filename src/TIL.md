@@ -357,3 +357,26 @@ git reset HEAD <FILE_NAME>
         System.out.println(stringBuilder.reverse());
         } 
 ```
+
+#### 2021-01-11 
+
+* Java int [ ] 를 List 로 변환하기 
+
+```java
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+List<Integer> lostList = Arrays.stream(intArray).boxed().collect(Collectors.toList());
+```
+
+* List.remove(Object) 를 할 때 숫자 값을 찾아서 지우는 경우 (인덱스로 찾는 것 말고) Integer 값으로 박싱을 해주어야 한다. 
+  * `List.remove((Integer) (numberElement))` 와 같이 해주어야 함! 안그러면 인덱스를 찾는걸로 인식해서 인덱스 바운드를 벗어났다는 
+  예외를 던질 수 있음. 
+    
+#### 프로그래머스 **GREEDY** 문제 풀이 
+  1. [체육복 빌려주기](../src/com/gahee/algorithms/programmers/GymClothes1.java) 
+    * 체육복의 여분이 있더라도 자신이 도난당한 경우라면 이를 제외해주어야 함. 
+  2. [큰 수 만들기](../src/com/gahee/algorithms/programmers/MakeBigNumber1.java)
+    * 숫자의 최대 길이가 100만 이어서, 테스트 케이스 2개에서 자꾸만 시간 초과가 뜬다 ... 
+    * 어떻게 하면 줄일 수 있을지 ...? 
