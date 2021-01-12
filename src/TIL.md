@@ -380,8 +380,10 @@ List<Integer> lostList = Arrays.stream(intArray).boxed().collect(Collectors.toLi
   2. [큰 수 만들기](../src/com/gahee/algorithms/programmers/MakeBigNumber1.java)
     * 숫자의 최대 길이가 100만 이어서, 테스트 케이스 2개에서 자꾸만 시간 초과가 뜬다 ... 
     * 어떻게 하면 줄일 수 있을지 ...?
-     
-#### IPortfolio 코딩테스트 문제 
+
+#### 2020-01-12 
+
+#### (1) IPortfolio 코딩테스트 문제 (aka. 코린이의 첫 코테)
 1. 서술형 2문제 
   - URL Encoding 을 사용하는 이유와 방법을 서술하시오. 
   - DB 에서 index 를 사용하는 이유와 장단점을 서술하시오. 
@@ -395,6 +397,7 @@ List<Integer> lostList = Arrays.stream(intArray).boxed().collect(Collectors.toLi
     - 자연수의 배열이 주어진다. 
     - 각 자연수들을 swap 하여서 인접한 숫자와의 차이가 K이하이도록 배열을 재구성한다.
     - 이 때 최소 swap 의 횟수를 구하라. 
+    - *PS. 다시 풀어보려 했는데 아직도 모르겠음 ...* 
   - (3) 영화의 상영 순서대로 영화의 이름이 배열에 담겨 주어진다. **[Map 과 Priority Queue 사용하여 해결]**
     - 영화가 두 번 상영 되었으면 배열에 두번 등장함
     - 각 영화의 상영 횟수가 많은 순서대로 배열에 담아 출력, 만약 상영 횟수가 같다면 이름의 알파벳 순으로 출력하라. 
@@ -403,3 +406,36 @@ List<Integer> lostList = Arrays.stream(intArray).boxed().collect(Collectors.toLi
 3. SQL 2문제 
   - GROUP BY, COUNT 사용 문제 
   - ROUND(AVG(열), 2) 사용 문제 
+
+#### (2) 프로그래머스 코테 강좌 1 
+* 기지국 설치 문제 : [CODE](../src/com/gahee/algorithms/programmers/Lec1_Stations.java)
+    * 음 ... 우선 포지션을 점핑하면서 카운트 하는 것 자체를 좀 헷갈려 했던 것 같다. 
+    * 그리고 그리디 문제라는 것을 알고 들어가서 그런지, 처음부터 문제 풀이에 자신감이 떨어졌었다. 
+    * 처음부터 잘못된 자료구조를 선택한게 꼬이기 시작한 원인이었음. boolean 배열을 두고 어느 인덱스에 
+    기지국이 설치되어 있는지를 표시하려 했는데, 기지국의 개수만 세면 되는 문제에서는 완전 불필요한 작업이었다.
+    * 강좌에서 그러길, 성능 테스트에서 걸리면 다음을 확인하라 하셨다. 
+
+```
+1. 루프를 비효율적으로 돌고 있는가?
+2. 원시 타입만으로 풀 수 있는 문제를 오브젝트 타입으로 풀고 있지는 않은가? 
+3. 그리고 또 뭐였더라 ? ... ;;;; 
+```
+
+* 가장 큰 숫자 만들기 문제 : [CODE](../src/com/gahee/algorithms/programmers/Lec2_MakeBigNumber.java)
+    * 함정 : 숫자들을 계속해서 이어붙이면 정수, 더블의 범위를 넘어날 수 있음. 
+    따라서 문자열로 처리해야 한다는 것을 캐치해야 함! 
+    * 자바 언어를 사용한다는 것은 자바가 제공하는 기본 라이브러리를 사용한다는 것. 
+    * 기본 라이브러리인 랭과 유틸 패키지의 사용법을 숙지할 것. 
+    
+* 람다식 사용하기 
+```java
+String answer = IntStream.of(numbers) //array ... 
+.mapToObj(String::valueOf) //각 요소들을 스트링 타입으로 매핑 
+.sorted((s1, s2) -> (s2+s1).compareTo(s1+s2)) //String 으로 매핑 한 후에 소팅해야함
+.collect(Collectors.joining()); // 각 요소들을 하나로 합친다. 
+```
+
+* 문자열의 첫번째 요소를 검사하는 경우 
+```java
+String.startsWith("0"); //charAt 대신에 startsWith 를 사용한다. 
+```
