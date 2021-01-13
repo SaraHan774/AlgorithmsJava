@@ -381,7 +381,7 @@ List<Integer> lostList = Arrays.stream(intArray).boxed().collect(Collectors.toLi
     * 숫자의 최대 길이가 100만 이어서, 테스트 케이스 2개에서 자꾸만 시간 초과가 뜬다 ... 
     * 어떻게 하면 줄일 수 있을지 ...?
 
-#### 2020-01-12 
+#### 2021-01-12 
 
 #### (1) IPortfolio 코딩테스트 문제 (aka. 코린이의 첫 코테)
 1. 서술형 2문제 
@@ -439,3 +439,26 @@ String answer = IntStream.of(numbers) //array ...
 ```java
 String.startsWith("0"); //charAt 대신에 startsWith 를 사용한다. 
 ```
+
+#### 2021-01-13 
+* 람다식으로 max 값 구하기 
+```java
+int max = IntStream.of(array).max().orElse(0); 
+```
+
+* 람다식으로 sum 구하기 
+```java
+int sum = IntStream.of(array).sum(); 
+```
+
+* 람다식으로 sum 구할 때 조건 추가하기 
+```java
+int sum = IntStream.of(array).map(a -> Math.min(a, otherValue)).sum(); 
+```
+
+* 예산 문제 풀이
+    * 정렬된 배열은 이분탐색이 가능하다. 
+    * 주어진 배열에서 중요한 것은 가능한 금액의 최소와 최대 범위일 뿐 ! - 삽질하기 쉽다. 
+    * 최소값과 최대값을 통해 중간값을 구하고, 해당 중간값과 최소 필요 예산들의 합으로 전체 예산을 맞출 수 있는지 검사한다. 
+    * 검사가 끝나는 시점은 최소값과 최대값이 교차하는 순간이다. 
+    * sum 이 최대 예산보다 같거나 적은 시점의 중간값이 answer 가 될 가능성이 있다. 
