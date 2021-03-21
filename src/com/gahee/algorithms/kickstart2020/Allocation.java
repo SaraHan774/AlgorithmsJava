@@ -9,7 +9,6 @@ public class Allocation {
 
     public static void main(String[] args) throws IOException {
 
-
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(bufferedReader.readLine());
