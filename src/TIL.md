@@ -312,6 +312,7 @@ git reset HEAD <FILE_NAME>
 
 
 #### Character.isXXX() 메서드 탐색하기 
+
 ```java
     private static void charTesting(){
         String s = "av123er   tgs---1781920380r0((^^&*()=";
@@ -337,6 +338,7 @@ git reset HEAD <FILE_NAME>
 ```
 
 #### 이진수로 변환하는 방법 
+
 * 숫자를 2로 나눈 결과가 0보다 클 동안 2로 나눈 나머지를 스트링 빌더에 어펜드 한다. 
 * 결과를 reverse() 함수로 뒤집어준다. 
 * 예시 코드 [MakeBinary.java](../src/com/gahee/algorithms/programmers/MakeBinary.java)
@@ -503,3 +505,12 @@ int sum = IntStream.of(array).map(a -> Math.min(a, otherValue)).sum();
 * [KGoodness String](../src/com/gahee/algorithms/kickstart2021/KGoodnessString.java)
     * 포인터 두개로 순환할 때는 오른쪽 포인터를 감소시켜주어야 하는데 멍청하게 증가시켜서 
     런타임 에러가 났었다 ㅠㅠ 주의하자. 
+
+
+# 2021-7 
+
+* 한동안 취업 & 회사 적응으로 정신이 없었다. 이제 학교도 다 마쳐서 내가 하고싶은 공부를 마음껏 할 수 있게 되었다! 다시 파이팅 해서 알고리즘 공부 이어 나가자. 
+* **7월 이후 ~ 22년 여름까지의 계획**
+    1. 알고리즘 교과서 3회독 
+    2. Coursera Algorithms Specialization 4강좌 모두 수료 
+    3. 교과서 연습문제 풀이 (소 챕터 당 최소 3 문제 이상 풀이하기)
