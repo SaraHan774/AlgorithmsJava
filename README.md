@@ -18,5 +18,8 @@
 ### Level Up Career Project
 
 - Participate in Google Kickstart **EVERY MONTH!**
-- Finish Algorithms (Coursera) Specialization (5월 전에 마무리하기)
+    - 7월 부터라도 적극적으로 참여하기
+- Finish Algorithms (Coursera) Specialization 
+    - 너무 급하지 않게 하기. 
+    - Introduction to algorithms 교과서와 병행 
 - Master Java & Kotlin ! 
