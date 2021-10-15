@@ -514,3 +514,8 @@ int sum = IntStream.of(array).map(a -> Math.min(a, otherValue)).sum();
     1. 알고리즘 교과서 3회독 
     2. Coursera Algorithms Specialization 4강좌 모두 수료 
     3. 교과서 연습문제 풀이 (소 챕터 당 최소 3 문제 이상 풀이하기)
+
+
+### 2021-10-15 금요일 
+
+* 코세라 알고리즘 Part2 - Week4 - Programming assignment #4 수행 
