@@ -13,13 +13,7 @@
 
 ### Tracking Growth 
 * [알고리즘 스티커 챌린지](https://docs.google.com/document/d/1FPv4DZzGvhpBymgTOMZcmJU8vpICwJsh_axi21vbTFg/edit?usp=sharing)
-* [Evernote link for my algorithms study](https://www.evernote.com/pub/sarahan774/algorithms)
 
 ### Level Up Career Project
-
-- Participate in Google Kickstart **EVERY MONTH!**
-    - 7월 부터라도 적극적으로 참여하기
-- Finish Algorithms (Coursera) Specialization 
-    - 너무 급하지 않게 하기. 
-    - Introduction to algorithms 교과서와 병행 
-- Master Java & Kotlin ! 
+* 백준 단계별 문제풀이 1단계 ~ 40단계
+* 22년 6월 1주 : 1단계 ~ 3단계 
