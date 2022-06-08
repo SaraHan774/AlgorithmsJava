@@ -518,4 +518,16 @@ int sum = IntStream.of(array).map(a -> Math.min(a, otherValue)).sum();
 
 ### 2021-10-15 금요일 
 
-* 코세라 알고리즘 Part2 - Week4 - Programming assignment #4 수행 
+* 코세라 알고리즘 Part2 - Week4 - Programming assignment #4 수행
+
+
+---
+
+
+# 2022 
+
+- 꾸준하지 못하면 모래성을 쌓아올리는 셈이다. 꾸준히 노력하자. 
+
+### 2022-06 
+- https://www.baeldung.com/java-floating-point-sum-order
+- When to use`BigDecimal` ? 
